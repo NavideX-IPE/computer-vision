@@ -108,7 +108,8 @@ def save_detection(frame, gps):
             encoding="utf-8",
         )
     else:
-        gps_path.write_text("GPS indisponivel no momento da deteccao.\n", encoding="utf-8")
+        gps_path.write_text(
+            "GPS indisponivel no momento da deteccao.\n", encoding="utf-8")
 
     print(f"[OK] Imagem salva em: {image_path}")
     print(f"[OK] GPS salvo em: {gps_path}")
@@ -176,7 +177,8 @@ def main():
         while True:
             ok, frame = capture.read()
             if not ok:
-                print("[AVISO] Falha ao receber frame da stream; tentando novamente...")
+                print(
+                    "[AVISO] Falha ao receber frame da stream; tentando novamente...")
                 continue
 
             results = model(frame, verbose=False)
